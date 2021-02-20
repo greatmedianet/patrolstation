@@ -1,0 +1,6 @@
+.antialiased{
+	background-color: black !important;
+}
+[class*=sidebar-dark-]{
+	background-color: #116ecc !important;
+}

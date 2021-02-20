@@ -1,0 +1,35 @@
+
+/*
+.login-pg2{
+
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #e9ecef;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100vh;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+*/
+
+.login-page-form{
+
+  background-color: #e9ecef;
+  height: 100vh;
+  width: 350px !important;
+  height: 400px !important;
+  -ms-flex-direction: column;
+  margin: 0 auto;
+  margin-top: 100px;
+
+}
+
+body {
+    background: grey;
+    margin-top: 120px;
+    margin-bottom: 120px;
+}

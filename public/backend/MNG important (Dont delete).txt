@@ -1,0 +1,13 @@
+Hlaing
+shwezinyawhlaing@gmail.com
+Sz8s0E3K
+
+
+shwezinyawhmawbe@gmail.com
+w6ZPp1o4
+
+Purchase URL = https://api.pprd.gov.mm/api/Transaction/StationPurchaseAPI/201522
+Sale URL = https://api.pprd.gov.mm/api/Transaction/StationSaleAPI/201522
+Adjustment URL = https://api.pprd.gov.mm/api/Transaction/StationAdjustmentAPI/201522
+Certificate = Shwe Zin Yaw-Hlaing
+Certificate-key = GAIVS-HIPFU-NSYOW-TINNN

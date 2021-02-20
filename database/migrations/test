@@ -1,0 +1,187 @@
+$newDateFormat = $user->created_at->format('d/m/Y');
+$newDateFormat2 = date('d/m/Y', strtotime($user->created_at));
+$newDateFormat3 = \Carbon\Carbon::parse($user->created_at)->format('d/m/Y');
+date('Y-m-d H:i:s')
+
+$number = '000009'; // the number to format
+
+str_pad(intval($number) + 1, strlen($number), '0', STR_PAD_LEFT); // 000010
+
+$number = 1;
+$number++;
+echo str_pad($number, 5, "0", STR_PAD_LEFT);  //00002
+
+auth()->user()->shop->short_name.date('Ymd').str_pad($sale_id->id + 1, 6, "0", STR_PAD_LEFT)
+
+switch ($role) {
+
+                case 'Admin':
+                case 'HR':
+
+                    $query = EmployeeExpense::whereHas('employee', function ($query) use($company) {
+                                    $query->whereHas('company', function ($query) use($company) {
+                                        $query->where('id', $company->id);
+                                    });
+                                });
+                    break;
+
+                case 'Manager':
+
+                    if (!empty($master->masterDepartment)) {
+                        $department = $master->masterDepartment->department_id;
+                        $query = EmployeeExpense::whereHas('employee', function ($query) use($company, $department) {
+                                        $query->whereHas('department', function ($query) use($company, $department) {
+                                            $query->where('department_id', $department);
+                                        });
+                                    });
+                    } else {
+                        $query = EmployeeExpense::whereHas('employee', function ($query) use($company) {
+                                    $query->whereHas('company', function ($query) use($company) {
+                                        $query->where('id', $company->id);
+                                    });
+                                });
+                    }
+                    break;
+
+                case 'Leader':
+
+                    $team = $master->masterTeam->team_id;
+                    $query = EmployeeExpense::whereHas('employee', function ($query) use($company, $team) {
+                                    $query->whereHas('team', function ($query) use($company, $team) {
+                                        $query->where('team_id', $team);
+                                    });
+                                });
+                    break;
+
+                default:
+                    return redirect()->route('master.expenses.index')->with('error', 'Undefined Role.');
+                    break;
+            }
+
+            $user = auth()->user();
+        $query = Nozzle::whereHas('pump', function ($query) use($user) {
+                                    $query->whereHas('shop', function ($query) use($user) {
+                                        $query->where('confirmed_nozzle', 1);
+                                    });
+                                });
+
+try {
+            $producttype->delete();
+            return redirect()->route('admin.producttypes.index');
+        }
+        catch(\Exception $e) {
+            return back()->withErrors(["error" => "Product Types has Relations!"]);
+        }
+
+        $client = new \GuzzleHttp\Client();
+    // $file = $request->file('excel');
+    // if($file){
+    //     $row = 1;
+    //     $array = [];
+    //     if (($handle = fopen($file, "r")) !== FALSE) {
+    //         while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+    //             if($row > 1){
+    //                 Http::withHeaders([
+    //                     "Content-Type" => "multipart/form-data",
+    //                     "Certificate" => "Shwe Zin Yaw(No.2)",
+    //                     "Certificate-key" => "3MXDO-NR1Y3-84PFK-BRY91",
+    //                     ])->attach('attachment', $request->file('excel'), 'purchase.csv')
+    //                     ->post('https://uatapi.pprd.gov.mm/api/Transaction/StationPurchaseAPI/201523', [
+    //                     'Date' => $data[0],
+    //                     'Invoice_No' => $data[1],
+    //                     'Supplier' => $data[2],
+    //                     'Supplier_Type' => $data[3],
+    //                     'Product' => $data[4],
+    //                     'Qty' => $data[5],
+    //                     'Price' => $data[6],
+    //                 ]);
+    //                 array_push($array,$data[0]);
+    //             }
+    //             $request->session()->flash('status', 'Purchase'.implode($array,", ").' created successfully!');
+    //             $row++;
+    //         }
+    //     }
+    // }else{
+    //     $request->session()->flash('error', 'Please choose a file to submit.');
+    // }
+    // return redirect()->route('purchases.index')->with('success','Purchase has send Successfully!');
+
+
+// 462 426
+
+        $client = new \GuzzleHttp\Client();
+        // $file = $request->file('excel');
+
+        try{
+            // $purchases =Http::withHeaders([
+            //             "Content-Type" => "multipart/form-data",
+            //             "Certificate" => "Shwe Zin Yaw(No.2)",
+            //             "Certificate-key" => "3MXDO-NR1Y3-84PFK-BRY91",
+            //             ])->attach('attachment', $file)
+            //             ->post('https://uatapi.pprd.gov.mm/api/Transaction/StationPurchaseAPI/201523', [
+            //                 'headers' => [
+            //                     'Authorization' => '3MXDO-NR1Y3-84PFK-BRY91'
+            //                 ],
+            //                 'multipart' => [
+            //                     [
+            //                         'name'     => 'excel',
+            //                         'contents' => fopen($request->file('excel'), 'r'),
+            //                         'filename' => 'purchase.csv'
+            //                     ],
+                        'body' => $file;
+            //                 ]
+                    $client = new \GuzzleHttp\Client();
+
+                    $client->request('POST', 'https://uatapi.pprd.gov.mm/api/Transaction/StationPurchaseAPI/201523', [
+                                'headers' => [
+                                    'Authorization' => '3MXDO-NR1Y3-84PFK-BRY91'
+                                ],
+                                'multipart' => [
+                                    [
+                                        'Content-type' => 'multipart/form-data',
+                                        "Certificate" => "Shwe Zin Yaw(No.2)",
+                                        "Certificate-key" => "3MXDO-NR1Y3-84PFK-BRY91",
+                                    ]
+                                ]
+                            ]);
+
+                        // $client->request('POST', 'https://uatapi.pprd.gov.mm/api/Transaction/StationPurchaseAPI/201523', [
+                        //     'multipart' => [
+                        //         [
+                        //             'name'     => 'excel',
+                        //             'contents' => fopen($request->file('excel'), 'r'),
+                        //             'filename' => 'purchase.csv'
+                        //         ],
+                        //     ]
+                        // ]);
+            return redirect()->route('purchases.index')->with('success','Purchase has send Successfully!');
+
+        } catch(\Illuminate\Http\Client\RequestException $e){
+            \Log::info($e->getMessage());
+        }
+
+
+    //     $client = new Client([
+    //         'base_uri' => 'ttps://uatapi.pprd.gov.mm',
+    //     ]);
+        
+    //     $client->request('POST', '/https://uatapi.pprd.gov.mm/api/Transaction/StationPurchaseAPI/201523', [
+    //         'multipart' => [
+    //             [
+    //                 'name'     => 'excel',
+    //                 'contents' => fopen($request->file('excel'), 'r'),
+    //                 'filename' => 'purchase.csv'
+    //             ],
+    //         ]
+    //     ]);
+    // return redirect()->route('purchases.index')->with('success','Purchase has send Successfully!');
+
+    'Date' => $data[0],
+                                'Invoice_No' => $data[1],
+                                'Supplier' => $data[2],
+                                'Supplier_Type' => $data[3],
+                                'Product' => $data[4],
+                                'Qty' => $data[5],
+                                'Price' => $data[6],
+
+                                ->attach('attachment', file_get_contents('photo.jpg'), 'photo.jpg')
